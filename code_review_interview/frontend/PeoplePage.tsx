@@ -9,14 +9,32 @@ export type Person = {
 };
 
 export const PeoplePage: React.FC = () => {
-  const { data: people } = useQuery<Person[]>(['GET_PEOPLE'], () =>
+  const peopleQuery = useQuery<Person[]>(['GET_PEOPLE'], () =>
     fetch('https://api.jellyfish.co/people', { method: 'GET' }).then((response) => response.json())
   );
 
+  const searchProp = (event: any) => {
+    const query = event.target.value;
+    fetch(`https://api.jellyfish.co/people?query=${query}`, { method: 'GET' })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        peopleQuery.data = data;
+      });
+  };
+
   return (
     <div>
-      <h1>People</h1>
-      {people?.map((person) => (
+      <div>
+        <h1 style="float: left">People</h1>
+        <input
+          type="text"
+          placeholder="Search people..."
+          onChange={searchProp}
+          style="float: right"
+        />
+      </div>
+      {peopleQuery.data?.map((person) => (
         <PersonCard key={person.id} person={person} />
       ))}
     </div>
