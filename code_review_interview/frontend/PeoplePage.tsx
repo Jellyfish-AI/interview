@@ -25,8 +25,15 @@ export const PeoplePage: React.FC = () => {
 
   return (
     <div>
-      <h1>People</h1>
-      <input type="text" placeholder="Search people..." onChange={searchProp} />
+      <div>
+        <h1 style="float: left">People</h1>
+        <input
+          type="text"
+          placeholder="Search people..."
+          onChange={searchProp}
+          style="float: right"
+        />
+      </div>
       {peopleQuery.data?.map((person) => (
         <PersonCard key={person.id} person={person} />
       ))}

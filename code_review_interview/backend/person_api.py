@@ -25,7 +25,7 @@ class GetPeopleView(generics.ListAPIView):
         queried_people = []
 
         for person in people:
-            if query is not None and len(people) > 0 and query in person.name or query in person.email:
+            if query in person.name or query in person.email:
                 queried_people.append(person)
 
         return queried_people
