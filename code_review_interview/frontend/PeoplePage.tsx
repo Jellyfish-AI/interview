@@ -13,7 +13,7 @@ export const PeoplePage: React.FC = () => {
     fetch('https://api.jellyfish.co/people', { method: 'GET' }).then((response) => response.json())
   );
 
-  const onSearch = (event: any) => {
+  const searchProp = (event: any) => {
     const query = event.target.value;
     fetch(`https://api.jellyfish.co/people?query=${query}`, { method: 'GET' })
       .then((response) => response.json())
@@ -26,7 +26,7 @@ export const PeoplePage: React.FC = () => {
   return (
     <div>
       <h1>People</h1>
-      <input type="text" placeholder="Search people..." onChange={onSearch} />
+      <input type="text" placeholder="Search people..." onChange={searchProp} />
       {peopleQuery.data?.map((person) => (
         <PersonCard key={person.id} person={person} />
       ))}
