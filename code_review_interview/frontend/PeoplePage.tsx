@@ -5,12 +5,11 @@ export type Person = {
   id: string;
   name: string;
   email: string;
-}
+};
 
 export const PeoplePage: React.FC = () => {
-  const { data: people } = useQuery<Person[]>(
-    ['GET_PEOPLE'],
-    () => fetch('/api/people').then((res) => res.json()),
+  const { data: people } = useQuery<Person[]>(['GET_PEOPLE'], () =>
+    fetch('https://api.jellyfish.co/people', { method: 'GET' }).then((response) => response.json())
   );
 
   return (
