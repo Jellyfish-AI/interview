@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import { PersonCard } from './PersonCard';
 
 export type Person = {
   id: string;
@@ -16,7 +17,7 @@ export const PeoplePage: React.FC = () => {
     <div>
       <h1>People</h1>
       {people?.map((person) => (
-        <PersonCard person={person} />
+        <PersonCard key={person.id} person={person} />
       ))}
     </div>
   );
