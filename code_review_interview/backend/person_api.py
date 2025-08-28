@@ -19,4 +19,13 @@ class GetPeopleView(generics.ListAPIView):
     serializer_class = PersonSerializer
 
     def get_queryset(self):
-        return Person.objects.all()
+        people = Person.objects.all()
+
+        query = self.request.query_params.get('query', None)
+        queried_people = []
+
+        for person in people:
+            if query is not None and len(people) > 0 and query in person.name or query in person.email:
+                queried_people.append(person)
+
+        return queried_people
