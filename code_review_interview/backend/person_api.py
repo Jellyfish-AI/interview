@@ -1,5 +1,5 @@
 
-from main.models import Person
+from backend.person_models import Person
 from rest_framework import generics, serializers
 
 
@@ -19,6 +19,4 @@ class GetPeopleView(generics.ListAPIView):
     serializer_class = PersonSerializer
 
     def get_queryset(self):
-        company = self.request.user.company
-
-        return Person.objects.filter(company=company)
+        return Person.objects.all()
