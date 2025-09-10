@@ -77,26 +77,26 @@ class GetPeopleView(generics.ListAPIView):
 
             person.team = Team.objects.get(id=allocated_team_id)
 
-            if person.engineering_area == 'FRONTEND':
-                engineering_area_label = 'Frontend'
-                engineering_area_color = "#0f73ff"
-            elif person.engineering_area == 'BACKEND':
-                engineering_area_label = 'Backend'
-                engineering_area_color = "#ff6b0f"
-            elif person.engineering_area == 'FULLSTACK':
-                engineering_area_label = 'Fullstack'
-                engineering_area_color = "#4dd826"
-            elif person.engineering_area == 'INFRA':
-                engineering_area_label = 'Infrastructure'
-                engineering_area_color = "#ffcb0f"
+            if person.engineer_type == 'FRONTEND':
+                engineer_type_label = 'Frontend'
+                engineer_type_color = "#0f73ff"
+            elif person.engineer_type == 'BACKEND':
+                engineer_type_label = 'Backend'
+                engineer_type_color = "#ff6b0f"
+            elif person.engineer_type == 'FULLSTACK':
+                engineer_type_label = 'Fullstack'
+                engineer_type_color = "#4dd826"
+            elif person.engineer_type == 'INFRA':
+                engineer_type_label = 'Infrastructure'
+                engineer_type_color = "#ffcb0f"
             else:
-                engineering_area_label = 'Non-Engineer'
-                engineering_area_color = "#8d8d8d"
+                engineer_type_label = 'Non-Engineer'
+                engineer_type_color = "#8d8d8d"
 
             person.engineer_type_data = {
-                "key": person.engineering_area or "NONE",
-                "label": engineering_area_label,
-                "color": engineering_area_color
+                "key": person.engineer_type or "NONE",
+                "label": engineer_type_label,
+                "color": engineer_type_color
             }
 
         serialized_data = self.serializer_class(people, many=True).data
