@@ -11,7 +11,6 @@ export const IssueCard: React.FC<IssueCardProps> = (props) => {
     <div>
       <div>{props.issue.title}</div>
       <div>Team: {props.issue.team.name}</div>
-      <div>Assignee: {props.issue.assignee.name}</div>
     </div>
   );
 };

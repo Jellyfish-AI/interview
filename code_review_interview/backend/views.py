@@ -12,30 +12,17 @@ class TeamSerializer(serializers.ModelSerializer):
             'id',
             'name',
         ]
-
-
-class PersonSerializer(serializers.ModelSerializer):
-    id = serializers.CharField()
-
-    class Meta:
-        model = Person
-        fields = [
-            'id',
-            'name',
-        ]
     
 
 class JiraIssueSerializer(serializers.ModelSerializer):
     id = serializers.CharField()
     team = TeamSerializer()
-    assignee = PersonSerializer()
 
     class Meta:
         model = JiraIssue
         fields = [
             'id',
             'team',
-            'assignee',
         ]
 
 
@@ -43,4 +30,4 @@ class GetJiraIssuesView(generics.ListAPIView):
     serializer_class = JiraIssueSerializer
 
     def get_queryset(self):
-        return JiraIssue.objects.all().select_related('team', 'assignee')
+        return JiraIssue.objects.all().select_related('team')
