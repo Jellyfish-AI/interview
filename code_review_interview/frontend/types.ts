@@ -8,3 +8,9 @@ export type Issue = {
   title: string;
   team: Team;
 };
+
+export type Person = {
+  id: number;
+  name: string;
+  team: Team;
+}
