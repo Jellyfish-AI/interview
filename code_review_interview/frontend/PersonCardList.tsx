@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { PersonCard } from './PersonCard';
-import { Person } from './types';
 
 type PersonCardListProps = {
-  people: Person[];
+  people: object[];
 };
 
 export const PersonCardList: React.FC<PersonCardListProps> = (props) => {

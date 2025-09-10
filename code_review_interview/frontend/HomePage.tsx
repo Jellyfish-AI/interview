@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 
 import { IssueCardList } from './IssueCardList';
 import { PersonCardList } from './PersonCardList';
-import { Issue, Person } from './types';
+import { Issue } from './types';
 
 export const HomePage: React.FC = () => {
   const { data: issues } = useQuery<Issue[]>(
@@ -15,7 +15,7 @@ export const HomePage: React.FC = () => {
     { staleTime: 1_200_000 }
   );
 
-  const { data: people } = useQuery<Person[]>(
+  const { data: people } = useQuery<object[]>(
     ['GET_PEOPLE'],
     () =>
       fetch('https://api.jellyfish.co/people', { method: 'GET' }).then((response) =>
