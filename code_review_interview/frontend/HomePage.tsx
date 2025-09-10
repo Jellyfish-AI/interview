@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import { IssueCardList } from './IssueCardList';
 import { Issue } from './types';
 
-export const IssuesPage: React.FC = () => {
+export const HomePage: React.FC = () => {
   const { data: issues } = useQuery<Issue[]>(
     ['GET_ISSUES'],
     () =>
