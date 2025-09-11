@@ -60,6 +60,9 @@ class GetPeopleView(generics.ListAPIView):
     def get(self):
         people = Person.objects.all()
 
+        if people.count() == 0:
+            return Response(status=404)
+
         for person in people:
             issue_count_by_team = {}
             for issue in person.assigned_issues:
