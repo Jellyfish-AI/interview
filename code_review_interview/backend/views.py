@@ -23,6 +23,7 @@ class JiraIssueSerializer(serializers.ModelSerializer):
         model = JiraIssue
         fields = [
             'id',
+            'title',
             'team',
         ]
 
