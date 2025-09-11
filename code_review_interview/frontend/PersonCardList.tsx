@@ -7,6 +7,10 @@ type PersonCardListProps = {
 };
 
 export const PersonCardList: React.FC<PersonCardListProps> = (props) => {
+  if (!props.people) {
+    return 'Loading...';
+  }
+
   return (
     <div>
       {props.people.map((person) => (
