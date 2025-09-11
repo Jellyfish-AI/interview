@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 type PersonCardProps = {
-  person: object;
+  person: any;
 };
 
 export const PersonCard: React.FC<PersonCardProps> = (props) => {

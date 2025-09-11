@@ -15,7 +15,7 @@ export const HomePage: React.FC = () => {
     { staleTime: 1_200_000 }
   );
 
-  const { data: people } = useQuery<object[]>(
+  const { data: people } = useQuery(
     ['GET_PEOPLE'],
     () =>
       fetch('https://api.jellyfish.co/people', { method: 'GET' }).then((response) =>

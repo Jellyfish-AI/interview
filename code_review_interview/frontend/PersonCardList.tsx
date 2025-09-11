@@ -3,7 +3,7 @@ import React from 'react';
 import { PersonCard } from './PersonCard';
 
 type PersonCardListProps = {
-  people: object[];
+  people: any[];
 };
 
 export const PersonCardList: React.FC<PersonCardListProps> = (props) => {
