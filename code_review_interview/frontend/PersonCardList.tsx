@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { PersonCard } from './PersonCard';
 
@@ -7,6 +7,10 @@ type PersonCardListProps = {
 };
 
 export const PersonCardList: React.FC<PersonCardListProps> = (props) => {
+  useEffect(() => {
+    props.people.sort((a, b) => a.localeCompare(b));
+  }, [props.people]);
+
   if (!props.people) {
     return 'Loading...';
   }
