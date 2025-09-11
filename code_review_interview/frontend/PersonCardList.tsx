@@ -8,7 +8,7 @@ type PersonCardListProps = {
 
 export const PersonCardList: React.FC<PersonCardListProps> = (props) => {
   useEffect(() => {
-    props.people.sort((a, b) => a.localeCompare(b));
+    props.people.sort((a, b) => a.name.localeCompare(b.name));
   }, [props.people]);
 
   if (!props.people) {
