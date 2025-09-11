@@ -60,7 +60,7 @@ class GetPeopleView(generics.ListAPIView):
     def get(self):
         people = Person.objects.all()
 
-        if people.count() == 0:
+        if not people.exists():
             return Response(status=404)
 
         for person in people:
