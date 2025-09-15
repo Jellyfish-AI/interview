@@ -7,10 +7,7 @@ import { Issue } from './types';
 export const HomePage: React.FC = () => {
   const { data: issues } = useQuery<Issue[]>(
     ['GET_ISSUES'],
-    () =>
-      fetch('https://api.jellyfish.co/issues', { method: 'GET' }).then((response) =>
-        response.json()
-      ),
+    () => fetch('/issues', { method: 'GET' }).then((response) => response.json()),
     { staleTime: 1_200_000 }
   );
 
