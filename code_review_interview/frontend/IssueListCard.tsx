@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Issue } from './types';
 
-type IssueCardProps = {
+type IssueListCardProps = {
   issue: Issue;
 };
 
-export const IssueCard: React.FC<IssueCardProps> = (props) => {
+export const IssueListCard: React.FC<IssueListCardProps> = (props) => {
   return (
     <div>
       <div>{props.issue.title}</div>

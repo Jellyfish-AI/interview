@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 
-import { IssueCardList } from './IssueCardList';
+import { IssueList } from './IssueList';
 import { Issue } from './types';
 
 export const HomePage: React.FC = () => {
@@ -14,7 +14,7 @@ export const HomePage: React.FC = () => {
   return (
     <div>
       <h1>Issues</h1>
-      <IssueCardList issues={issues} />
+      <IssueList issues={issues} />
     </div>
   );
 };
