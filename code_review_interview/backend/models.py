@@ -15,6 +15,9 @@ class Person(models.Model):
     name = models.CharField(max_length=64)
     email = models.EmailField(max_length=64, unique=True)
 
+    # FRONTEND / BACKEND / FULLSTACK / INFRA
+    engineer_type = models.CharField(max_length=64, blank=True, null=True)
+
 
 class JiraIssue(models.Model):
 
