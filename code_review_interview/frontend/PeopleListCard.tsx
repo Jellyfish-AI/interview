@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-type PersonCardProps = {
+type PeopleListCardProps = {
   person: any;
 };
 
-export const PersonCard: React.FC<PersonCardProps> = (props) => {
+export const PeopleListCard: React.FC<PeopleListCardProps> = (props) => {
   const navigate = useNavigate();
 
   return (
