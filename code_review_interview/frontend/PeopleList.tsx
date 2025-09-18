@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 
-import { PersonCard } from './PersonCard';
+import { PeopleListCard } from './PeopleListCard';
 
-type PersonCardListProps = {
+type PeopleListProps = {
   people: any;
 };
 
-export const PersonCardList: React.FC<PersonCardListProps> = (props) => {
+export const PeopleList: React.FC<PeopleListProps> = (props) => {
   useEffect(() => {
     props.people.sort((a, b) => a.name.localeCompare(b.name));
   }, [props.people]);
@@ -18,7 +18,7 @@ export const PersonCardList: React.FC<PersonCardListProps> = (props) => {
   return (
     <div>
       {props.people.map((person) => (
-        <PersonCard key={person.name} person={person} />
+        <PeopleListCard key={person.name} person={person} />
       ))}
     </div>
   );
